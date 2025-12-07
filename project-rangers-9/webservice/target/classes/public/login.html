@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Login | Thai Flashcards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .login-wrapper {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 45px;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 0 40px rgba(0,0,0,0.7);
+      animation: fadeUp 0.6s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .login-header img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid cyan;
+      padding: 5px;
+      margin-bottom: 15px;
+    }
+
+    .login-header h2 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .login-header p {
+      color: #cbd5e0;
+      font-size: 0.9rem;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 6px;
+      color: #a0aec0;
+      font-size: 0.85rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: transparent;
+      color: white;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: cyan;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 25px;
+      background: transparent;
+      color: cyan;
+      border: 2px solid cyan;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: cyan;
+      color: black;
+      box-shadow: 0 0 20px cyan;
+      transform: translateY(-1px);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+    }
+
+    .alert {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .alert-success {
+      background: rgba(0,255,170,0.15);
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+    }
+
+    .alert-danger {
+      background: rgba(255,0,0,0.15);
+      border: 1px solid #ff4d4d;
+      color: #ff4d4d;
+    }
+
+    .hint {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #a0aec0;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="login-wrapper">
+
+  <div class="login-header">
+    <img src="logo.png" onerror="this.style.display='none'">
+    <h2>THAI FLASHCARDS</h2>
+    <p>Secure login required</p>
+  </div>
+
+  <form id="loginForm">
+    <label>Username</label>
+    <input type="text" id="username" placeholder="Enter username" required>
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter password" required>
+
+    <button id="submitBtn" type="submit">LOGIN</button>
+  </form>
+
+  <div id="alertBox"></div>
+
+  <div class="hint">
+    Demo access: <b>alice / secret</b>
+  </div>
+
+</div>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const btn = document.getElementById("submitBtn");
+  const alertBox = document.getElementById("alertBox");
+
+  function showAlert(message, type = "danger") {
+    alertBox.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    alertBox.innerHTML = "";
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!username || !password) {
+      showAlert("Both fields are required.");
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerText = "CONNECTING...";
+
+    try {
+      const res = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("token", data.token);
+        showAlert("Access granted. Redirecting...", "success");
+        setTimeout(() => window.location.href = "welcome.html", 900);
+      } else {
+        showAlert(data.error || "Invalid login details.");
+      }
+
+    } catch (error) {
+      showAlert("Connection failed. Run your server.");
+    }
+
+    btn.disabled = false;
+    btn.innerText = "LOGIN";
+  });
+</script>
+
+</body>
+</html>

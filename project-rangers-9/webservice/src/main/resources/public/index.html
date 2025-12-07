@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thai Language Training | Global Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Poppins", sans-serif;
+      color: white;
+    }
+
+    .main-box {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 60px 45px;
+      border-radius: 18px;
+      text-align: center;
+      max-width: 520px;
+      width: 90%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      animation: pop 0.7s ease;
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      border: 3px solid cyan;
+      padding: 5px;
+      background: black;
+    }
+
+    h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #cbd5e0;
+      margin-bottom: 35px;
+    }
+
+    .start-btn {
+      display: inline-block;
+      padding: 15px 45px;
+      border-radius: 30px;
+      background: transparent;
+      color: cyan;
+      border: 2px solid cyan;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .start-btn:hover {
+      background: cyan;
+      color: black;
+      box-shadow: 0 0 20px cyan;
+    }
+
+    .info-row {
+      margin-top: 35px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .pill {
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e2e8f0;
+    }
+
+    @media(max-width:600px){
+      .main-box{
+        padding:40px 25px;
+      }
+      h1{
+        font-size:1.5rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="main-box">
+
+  <img src="https://crown.edu.mm/wp-content/uploads/2025/07/514248721_122241211796213274_3497235330759065256_n.jpg" 
+       class="logo"
+       onerror="this.style.display='none'">
+
+  <h1>Thai consonant</h1>
+
+  <p class="subtitle">
+    Small change, Big impact!
+  </p>
+
+  <a href="login.html" class="start-btn">START LEARNING</a>
+
+  
+
+</div>
+
+</body>
+</html>
