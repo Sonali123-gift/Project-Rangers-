@@ -1,20 +1,21 @@
-# 📚 Flashcard Learning App
+# 🇹🇭 Thai Language Flashcard App
 
-A Java-based flashcard application developed as a group project at Siam University Global Academy.
+A Java-based flashcard application designed to help beginners learn the Thai language. This project was developed as a group assignment at Siam University Global Academy.
 
 ## 📖 About
 
-The Flashcard Learning App helps users study and memorize information using digital flashcards. Users can browse flashcards, test their knowledge, and improve learning through a simple and interactive interface.
+The Thai Language Flashcard App is an interactive learning tool that helps users build Thai vocabulary through digital flashcards. It provides an easy and engaging way to practice common Thai words and improve language skills.
 
-## 🎯 Features
+## ✨ Features
 
-- 📖 View flashcards
+- 📚 Learn common Thai vocabulary
+- 🔤 View Thai words with English translations
 - ➕ Add new flashcards
 - ✏️ Edit existing flashcards
 - 🗑️ Delete flashcards
 - 🔍 Search flashcards
-- 💾 Save flashcard data
-- 🎨 Easy-to-use interface
+- 💾 Save and manage flashcard data
+- 🖥️ Simple and user-friendly interface
 
 ## 🛠️ Technologies Used
 
@@ -29,7 +30,7 @@ The Flashcard Learning App helps users study and memorize information using digi
 Project-Rangers-
 │── src/
 │── assets/
-│── README.md
+└── README.md
 ```
 
 ## 🚀 Getting Started
@@ -37,7 +38,7 @@ Project-Rangers-
 ### Prerequisites
 
 - Java JDK 17 or later
-- Visual Studio Code (or any Java IDE)
+- Visual Studio Code or any Java IDE
 
 ### Installation
 
@@ -47,15 +48,24 @@ Project-Rangers-
 git clone https://github.com/Sonali123-gift/Project-Rangers-.git
 ```
 
-2. Open the project in your Java IDE.
+2. Open the project in your preferred Java IDE.
 
 3. Run the main Java file to start the application.
 
+## 🎯 Learning Goals
 
-## 🎓 Project Information
+This application helps users:
 
-This project was developed as part of a Computer Science course at **Siam University Global Academy**. It demonstrates Java programming, object-oriented programming (OOP), and collaborative software development using GitHub.
+- Learn everyday Thai vocabulary
+- Improve memory through flashcards
+- Practice Thai-English word recognition
+- Build a strong foundation in the Thai language
+
+
+## 🎓 Course Information
+
+Developed as a group project for the Computer Science program at **Siam University Global Academy**.
 
 ## 📄 License
 
-This project is for educational purposes.
+This project is intended for educational purposes only.
